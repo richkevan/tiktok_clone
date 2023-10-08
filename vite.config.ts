@@ -4,6 +4,6 @@ import svgr from '@svgr/rollup'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  baseUrl: '/tiktok_clone/',
+  base: '/tiktok_clone/',
   plugins: [react(), svgr()],
 })
