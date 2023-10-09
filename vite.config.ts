@@ -6,6 +6,7 @@ import svgr from '@svgr/rollup'
 const root = resolve(__dirname, 'src')
 const publicAssets = resolve(__dirname, 'public')
 const dist = resolve(__dirname, 'dist')
+const fallback = resolve(root, '404.html')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,7 +18,10 @@ export default defineConfig({
     outDir: dist,
     emptyOutDir: true,
     rollupOptions: {
-
+      input: {
+        index: resolve(root, 'index.html'),
+        "404": fallback,
+      }
     },
   },
 })
