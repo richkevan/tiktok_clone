@@ -7,6 +7,10 @@ import {ReactComponent as Home} from "../assets/home.svg"
 import {ReactComponent as Following} from "../assets/following.svg"
 import {ReactComponent as Explore} from "../assets/explore.svg"
 import {ReactComponent as Live} from "../assets/live.svg"
+import { useFirebaseAuth } from "../_firebase/auth-context"
+import useHoverMenu from "./hover-menu"
+import useModal from "./modal"
+import SignInForm from "./forms/sign-in"
 
 const mainNav = [
   {
@@ -32,9 +36,11 @@ const mainNav = [
 ]
 
 const Layout = ({children}:PropsWithChildren) => {
+  const { user, sign_In, sign_Out} = useFirebaseAuth()
+  const { HoverMenu, showHoverMenu } = useHoverMenu()
+  const { Modal, showModal } = useModal()
 
   const handleActiveNav = ({url}:{url: string}) => {
-    console.log("URL",window.location.pathname.includes(url), url)
     if(window.location.pathname.includes(url)) {
       return true
     } else {
@@ -44,6 +50,7 @@ const Layout = ({children}:PropsWithChildren) => {
 
   return (
     <>
+    {/* Header */}
     <header className="border-b-2 border-b-gray-400 h-16 flex items-center justify-between pl-4 pr-6 fixed top-0 w-full">
       <div className="min-w-[300px]">
       <SvgSprite sprite="#logo-dark-1ef9a37a" className="w-[118px] h-11"/>
@@ -61,12 +68,29 @@ const Layout = ({children}:PropsWithChildren) => {
         <a href="/upload">
         <div className="flex items-center rounded-[2px] px-4 h-9 border-2 border-gray-300 "><Plus />Upload</div>
         </a>
-        <button className="flex items-center justify-center rounded-[4px] px-2 py-[6px] min-h-9 min-w-[100px] 
-        bg-[#fe2c55] text-white font-semibold">Log in</button>
-        <VertElipsis className=" w-5 h-5"/>
+        <button 
+        className="flex items-center justify-center rounded-[4px] px-2 py-[6px] min-h-9 min-w-[100px] 
+        bg-[#fe2c55] text-white font-semibold"
+        onClick={() => showModal()}
+        >Log in</button>
+        <div 
+        className="relative"
+        onMouseEnter={() => {showHoverMenu()}}>
+        <VertElipsis className=" w-5 h-5" />
+        <HoverMenu className="fixed top-16 right-0 rounded shadow-lg font-semibold ">
+          <ul>
+            <li className="hover:bg-gray-300 hover:bg-opacity-30 px-8 py-2">LIVE Creator Hub</li>
+            <li className="hover:bg-gray-300 hover:bg-opacity-30 px-8 py-2">English</li>
+            <li className="hover:bg-gray-300 hover:bg-opacity-30 px-8 py-2">Feedback and help</li>
+            <li className="hover:bg-gray-300 hover:bg-opacity-30 px-8 py-2">Keyboard shortcuts</li>
+          </ul>
+        </HoverMenu>
+        </div>
       </div>
     </header>
+    {/* Main page */}
     <div className="flex mt-16">
+      {/* Sidebar Navigation */}
       <aside className="border-r-2 border-r-gray-300 w-[240px] fixed left-0 top-16 px-2 py-4 h-[calc(100vh-64px)] flex flex-col">
         <ul>
           {mainNav.map(({name, Icon, url}) => (
@@ -79,8 +103,6 @@ const Layout = ({children}:PropsWithChildren) => {
           ))}
           <hr />
         </ul>
-          
-      
         <div className="px-4 pt-5 pb-6 flex flex-col">
           <p>Log in to follow creators, like videos, and view comments.</p>
           <button className="border-2 border-[#fe2c55] px-2 py-[6px] rounded mt-5 min-w-[168px] text-[#fe2c55] w-full">Log in</button>
@@ -127,6 +149,10 @@ const Layout = ({children}:PropsWithChildren) => {
       </div>
     </div>
     <footer></footer>
+    {/* Login Modal */}
+    <Modal>
+      <SignInForm/>
+    </Modal>
     </>
   )
 }
