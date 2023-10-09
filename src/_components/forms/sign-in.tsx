@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useFirebaseAuth } from "../../_firebase/auth-context";
 import SvgSprite from "../svg-sprite";
 
@@ -8,9 +8,9 @@ const SignInForm = () => {
   const [passwordValue, setPasswordValue] = useState("")
   const { sign_In } = useFirebaseAuth()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
-    const formData = new FormData(e.target)
+    const formData = new FormData(e.target as HTMLFormElement)
     const data = Object.fromEntries(formData)
     sign_In({email:data.email.toString(), password:data.password.toString()})
   }
