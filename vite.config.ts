@@ -5,6 +5,7 @@ import svgr from '@svgr/rollup'
 
 const root = resolve(__dirname, 'src')
 const publicAssets = resolve(__dirname, 'public')
+const dist = resolve(__dirname, 'dist')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
   publicDir: publicAssets,
   plugins: [react(), svgr()],
   build: {
-    outDir: 'dist',
+    outDir: dist,
     emptyOutDir: true,
     rollupOptions: {
 
