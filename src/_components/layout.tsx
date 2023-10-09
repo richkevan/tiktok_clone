@@ -36,7 +36,7 @@ const mainNav = [
 ]
 
 const Layout = ({children}:PropsWithChildren) => {
-  const { user, sign_In, sign_Out} = useFirebaseAuth()
+  // const { user, sign_In, sign_Out} = useFirebaseAuth()
   const { HoverMenu, showHoverMenu } = useHoverMenu()
   const { Modal, showModal } = useModal()
 

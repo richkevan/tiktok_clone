@@ -12,12 +12,12 @@ const SignInForm = () => {
     e.preventDefault()
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData)
-    sign_In({email:data.email, password:data.password})
+    sign_In({email:data.email.toString(), password:data.password.toString()})
   }
 
   return (
     <>
-    <form className="w-full flex flex-col gap-4">
+    <form className="w-full flex flex-col gap-4" onSubmit={(e) => handleSubmit(e)}>
       <h1 className="text-center text-2xl font-bold">Log in to TikTok</h1>
       <input
       name="email" 
