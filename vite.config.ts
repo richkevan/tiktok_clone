@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react-swc'
 import svgr from '@svgr/rollup'
 
 const root = resolve(__dirname, 'src')
+const googlee5f7fb12da473b5e = resolve(root, 'googlee5f7fb12da473b5e.html')
 const publicAssets = resolve(__dirname, 'public')
 const dist = resolve(__dirname, 'dist')
 const fallback = resolve(root, '404.html')
@@ -20,6 +21,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(root, 'index.html'),
+        googlee5f7fb12da473b5e,
         "404": fallback,
       }
     },
