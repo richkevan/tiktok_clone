@@ -12,7 +12,6 @@ const fallback = resolve(root, '404.html')
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  base: '/tiktok_clone/',
   publicDir: publicAssets,
   plugins: [react(), svgr()],
   build: {
