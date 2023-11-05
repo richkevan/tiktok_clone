@@ -110,7 +110,7 @@ const Layout = ({children}:PropsWithChildren) => {
         <div className="flex-1"></div>
         <hr />
         <div className=" pt-4 pl-2">
-          <div className="pr-2 mb-8 flex justify-center items-center rounded-lg bg-[url(./045b2fc7c278b9a30dd0.png)] h-[52px] bg-cover bg-no-repeat w-full bg-center cursor-pointer">
+          <div className="pr-2 mb-8 flex justify-center items-center rounded-lg bg-[url(/045b2fc7c278b9a30dd0.png)] h-[52px] bg-cover bg-no-repeat w-full bg-center cursor-pointer">
             <div className="flex hover:scale-110 transition-all duration-500">
               <SvgSprite sprite="#eh-logo-a5ac4daf" className=" w-5 h-5 mr-2"/>
               <span>Create effects</span>
