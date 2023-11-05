@@ -16,15 +16,14 @@ jobs:
           node-version: '16'
       - run: npm install
       - run: npm run build
-        with:
-          env:
-            apiKey: '${{ secrets.VITE_APIKEY }}'
-            appId: '${{ secrets.VITE_APPID }}'
-            authDomain: '${{ secrets.VITE_AUTHDOMAIN }}'
-            measurementId: '${{ secrets.VITE_MEASUREMENTID }}'
-            messagingSenderId: '${{ secrets.VITE_MESSAGINGSENDERID }}'
-            projectId: '${{ secrets.VITE_PROJECTID }}'
-            storageBucket: '${{ secrets.VITE_STORAGEBUCKET }}'
+        env:
+          apiKey: '${{ secrets.VITE_APIKEY }}'
+          appId: '${{ secrets.VITE_APPID }}'
+          authDomain: '${{ secrets.VITE_AUTHDOMAIN }}'
+          measurementId: '${{ secrets.VITE_MEASUREMENTID }}'
+          messagingSenderId: '${{ secrets.VITE_MESSAGINGSENDERID }}'
+          projectId: '${{ secrets.VITE_PROJECTID }}'
+          storageBucket: '${{ secrets.VITE_STORAGEBUCKET }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
