@@ -51,7 +51,7 @@ const Layout = ({children}:PropsWithChildren) => {
   return (
     <>
     {/* Header */}
-    <header className="border-b-2 border-b-gray-400 h-16 flex items-center justify-between pl-4 pr-6 fixed top-0 w-full">
+    <header className="border-b-2 border-b-gray-400 h-16 flex items-center justify-between pl-4 pr-6 fixed top-0 w-full bg-white z-50">
       <div className="min-w-[300px]">
       <SvgSprite sprite="#logo-dark-1ef9a37a" className="w-[118px] h-11"/>
       </div>
@@ -105,7 +105,11 @@ const Layout = ({children}:PropsWithChildren) => {
         </ul>
         <div className="px-4 pt-5 pb-6 flex flex-col">
           <p>Log in to follow creators, like videos, and view comments.</p>
-          <button className="border-2 border-[#fe2c55] px-2 py-[6px] rounded mt-5 min-w-[168px] text-[#fe2c55] w-full">Log in</button>
+          <button 
+          className="border-2 border-[#fe2c55] px-2 py-[6px] rounded mt-5 min-w-[168px] text-[#fe2c55] w-full"
+          onClick={() => showModal()}
+          >
+            Log in</button>
         </div>
         <div className="flex-1"></div>
         <hr />
