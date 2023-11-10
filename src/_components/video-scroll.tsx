@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { getVideosFromPlaylist} from "../_utilities/axios";
 
 const VideoDisplay = () => {
@@ -27,7 +26,7 @@ const VideoDisplay = () => {
           </div>
           <div className="flex flex-row gap-4">
             <div className="flex-1">
-              <iframe src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}?&autoplay=1&mute=1&controls=1&enablejsapi=1&fs=0&frameborder="0"`} allow="autoplay; encrypted-media" className=" aspect-[9/18] min-h-[480px] rounded-lg" />
+              <iframe src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}?&autoplay=1&mute=1&controls=1&enablejsapi=1&fs=0&frameborder="0"`} allow="encrypted-media" className="aspect-[9/18] min-h-[480px] rounded-lg" />
               
             </div>
             <div className="flex flex-col w-1/5 justify-end">

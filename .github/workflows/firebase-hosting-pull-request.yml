@@ -17,6 +17,7 @@ jobs:
       - name: Build project
         run: npm run build
         env:
+          VITE_YOUTUBE_API_KEY: '${{ secrets.VITE_YOUTUBE_API_KEY }}'
           VITE_APIKEY: '${{ secrets.VITE_APIKEY }}'
           VITE_AUTHDOMAIN: '${{ secrets.VITE_AUTHDOMAIN }}'
           VITE_PROJECTID: '${{ secrets.VITE_PROJECTID }}'
